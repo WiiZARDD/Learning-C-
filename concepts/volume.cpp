@@ -7,14 +7,62 @@ using std::endl;
 using std::cin;
 using std::string;
 
-int main(){
-    int length;
-    int width;
-    int height;
+void mainMenu();
+void calcArea();
+void calcVolume();
 
-    //char choice;
+void mainMenu(){
+    int choice;
+
+    do {
+        cout << "\nMAIN MENU\n" << endl;
+        cout << "1) Volume Calculator" << endl;
+        cout << "2) Area Calculator" << endl;
+        cout << "3) EXIT" << endl;
+        cout << "Pick an option: ";
+        cin >> choice;
+        if (choice == 1){
+            calcVolume();
+        }
+        if (choice == 2){
+            calcArea();
+        }
+    } while (choice != 3);
+
+}
+
+void calcArea(){
+    int length, width;
+
     string choice;
 
+    do {
+        cout << "Pick a length: ";
+        cin >> length;
+        //cout << "Current length: " << length << endl;
+        cout << "Pick width: ";
+        cin >> width;
+        //cout << "Current width: " << width << endl;
+    
+        int area = length * width;
+        cout << "Total Area: " << area << endl;
+    
+        cout << "Run it again? (Y / N): ";
+        cin >> choice;
+
+    } while (choice.find("Y") == 0 || choice.find("y") == 0);
+
+}
+
+// Volume Calculation Function
+void calcVolume(){
+    int length, width, height;
+
+    string choice;
+    //char choice; [<STRING> IS BETTER SO WE CAN USE (choice.find())]
+    // .find() is a method of std::string, which isn't needed for char
+
+    // Begin calculation loop -->
     do{
         cout << endl;
         cout << "Pick a length: ";
@@ -46,12 +94,16 @@ int main(){
         cout << "Total volume is: " << volume << " " << "[" << length << " * " << width << " * " << height << "]" << endl;
         cout << endl;
 
-        cout << "Run it again?";
+        cout << "Run it again? (Y / N): ";
         cin >> choice;
 
-    //} while (choice == 'y' || choice == 'Y'); (DEBUGGING)
+    //} while (choice == 'y' || choice == 'Y');
     } while (choice.find("Y") == 0 || choice.find("y") == 0);
 
+}
+
+int main(){
+    mainMenu();
     return 0;
 
 }
