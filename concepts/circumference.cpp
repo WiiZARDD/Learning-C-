@@ -5,7 +5,7 @@
 
 // ALWAYS include <iostream> so std:: works, also define as namespace
 #include <iostream>
-using namespace std;
+//using namespace std;
 
 // Beginning of program
 int main(){
